@@ -1,2 +1,2 @@
 # RadarAnalytic
-Architecture TP1
+A JavaScript project
