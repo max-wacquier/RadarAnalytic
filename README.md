@@ -1,2 +1,0 @@
-# RadarAnalytic
-A JavaScript project
