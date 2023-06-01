@@ -1,12 +1,10 @@
-import { Radar } from "./Radar";
+import { Radar } from "../Radar/Radar";
 
 export class IncidentsList {
-    constructor(){
-
-    }
+    
+    constructor(){}
 
     addAllIncidentsFromRadar(newRadar: Radar){
-
     }
 
     containsIncident(content: string){

@@ -1,8 +1,7 @@
-import { IRadar } from "../interfaces/IRadar";
-import { IRadarAdapter } from "../interfaces/IRadarAdapter";
-import { Incident } from "./Incident";
+import { IRadarAdapter } from "../Adapter/Radar/IRadarAdapter";
+import { Incident } from "../Incident/Incident";
 
-export class Radar implements IRadar{
+export class Radar {
 
     name: string;
     location: string;

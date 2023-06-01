@@ -1,6 +1,6 @@
-import { IRadarAdapter } from "../../../interfaces/IRadarAdapter";
-import { Incident } from "../../Incident";
-import { Radar } from "../../Radar";
+import { IRadarAdapter } from "../IRadarAdapter";
+import { Incident } from "../../../Incident/Incident";
+import { Radar } from "../../../Radar/Radar";
 import AwesomeRadarBase from "./AwesomeRadarExample.json"
 
 export class AwesomeRadarAdapter implements IRadarAdapter {
