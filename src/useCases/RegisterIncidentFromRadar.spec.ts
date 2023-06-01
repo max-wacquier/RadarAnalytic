@@ -1,9 +1,10 @@
 import { RadarFactory } from "../entities/Factories/RadarFactory";
-import { RadarAdapterManager } from "../entities/RadarAdapterManager";
 import { AwesomeRadarAdapter } from "../entities/adapters/AwesomeRadarAdapter";
 import { B612Adapter } from "../entities/adapters/B612Adapter";
 
 import { Reporter2000Adapter } from "../entities/adapters/Reporter2000Adapter";
+
+import { IncidentsList } from "../entities/IncidentsList";
 
 
 describe('IncidentsList', () => {
