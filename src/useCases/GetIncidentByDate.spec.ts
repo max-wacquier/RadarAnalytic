@@ -1,14 +1,9 @@
 describe('Testing the recuperation of incidents by date ', () => {
-    const myRadar = ''
-    let incidents: any[];
+    const myIncidentsList = new IncidentsList()
+    const date = '2023:06:01'
 
-    beforeEach(()=> {
-        incidents = new IncidentsList(myRadar);
-    })
-
-    it('Return incidents by date', () => {
-        let incidentsByDate: any[]
-        incidentsByDate = incidents.getAllIncidentsWhichHaveTheSameDate(date)
-        expect(incidents[0].date).toContain(date);
+    it('Getting incidents by date', () => {
+        const incidentsByDate = myIncidentsList.getAllIncidentsWhichHaveTheSameDate(date)
+        expect(incidentsByDate[0].date).toBe(date);
     });
 });
