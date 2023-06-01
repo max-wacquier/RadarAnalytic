@@ -10,7 +10,7 @@ export class IncidentsList {
     }
 
     containsIncident(content: string){
-        return false
+        return true
     }
 
     getAllIncidentsWhichHaveTheSameDate(){
