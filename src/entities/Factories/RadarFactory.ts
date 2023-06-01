@@ -1,21 +1,31 @@
-import { Radar } from '../Radar';
-import {RadarAdapterManager} from '../RadarAdapterManager';
+import { NoAdapterFound } from '../../errors/NoAdapterFound';
+import { IRadarAdapter } from '../../interfaces/IRadarAdapter';
 import * as fs from 'fs';
+
 export class RadarFactory {
 
-    RadarAdapterManager: RadarAdapterManager;
+    ListOfRadarAdapter : Array<IRadarAdapter> = new Array<IRadarAdapter>
 
-    constructor(manager: RadarAdapterManager) {
-        this.RadarAdapterManager = manager;
+    constructor(ArrayofAdapter: IRadarAdapter[]) {
+        ArrayofAdapter.forEach(element => {
+            this.ListOfRadarAdapter.push(element)
+    });
     }
 
-    createRadar(filePath: string) {
+    createRadarWithString(content : string){
+        this.ListOfRadarAdapter.forEach(RadarAdapter => {
+            if (RadarAdapter.formatIsSupported(content)) {
+                return RadarAdapter.createRadar(content)
+            } else {
+                throw new NoAdapterFound()
+            }
+            
+        });
+    }
+
+    createRadarWithFile(filePath: string) {
        var contentOfFile = fs.readFileSync('data/AwesomeRadar.json','utf8')
-       return this.getRadarWithGoodAdapter(contentOfFile);
-    }
-
-    getRadarWithGoodAdapter(content: string){
-        return this.RadarAdapterManager.getRadarWithGoodAdapteur(content)
+       return this.createRadarWithString(contentOfFile);
     }
 
 }
