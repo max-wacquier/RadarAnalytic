@@ -1,20 +1,17 @@
 import { IRadarAdapter } from "../../interfaces/IRadarAdapter";
 import { Incident } from "../Incident";
+import { Radar } from "../Radar";
 
 export class AwesomeRadarAdapter implements IRadarAdapter {
-    name: string;
-    location: string;
-    speedThreshold: number;
-    incidents: Array<Incident>;
-
-    constructor(name: string, location: string, speedThreshold: number, incidents: Array<Incident>) {
-            this.name = name;
-            this.location = location;
-            this.speedThreshold = speedThreshold;
-            this.incidents = incidents;
+    
+    constructor() {
     }
 
     formatIsSupported(format: string) : boolean {
       return format === "AwesomeRadar" ?  true : false
-  }
+    }
+
+    createRadar (format: string) {
+      return new Radar("","",0, [new Incident("", new Date, "","","","")]); //BOUCHONNAGE MOCHE
+    } 
 }

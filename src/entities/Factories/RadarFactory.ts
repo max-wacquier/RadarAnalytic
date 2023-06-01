@@ -1,4 +1,4 @@
-import { RadarAdapter } from '../RadarAdapter';
+import { Radar } from '../Radar';
 import {RadarAdapterManager} from '../RadarAdapterManager';
 import * as fs from 'fs';
 export class RadarFactory {

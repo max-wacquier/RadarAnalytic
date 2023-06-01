@@ -1,23 +1,24 @@
-import { NoAdapterFound } from "../errors/NoAdapterFound";
-import { RadarAdapter } from "./RadarAdapter";
+import { IRadarAdapter } from "../interfaces/IRadarAdapter";
+import { Radar } from "./Radar";
 
 export class RadarAdapterManager {
 
-    ListOfRadarAdapter : Array<RadarAdapter> = new Array<RadarAdapter>
+    ListOfRadarAdapter : Array<IRadarAdapter> = new Array<IRadarAdapter>
 
-    constructor(ArrayofAdapter: any[] ) {
+    constructor(ArrayofAdapter: IRadarAdapter[] ) {
         ArrayofAdapter.forEach(element => {
-            if (element instanceof(RadarAdapter)) {
                 this.ListOfRadarAdapter.push(element)
-            } else {
-                throw new NoAdapterFound();
-            }
         });
     }
 
     getRadarWithGoodAdapteur(content : string){
         this.ListOfRadarAdapter.forEach(RadarAdapter => {
-            if (RadarAdapter.formatIsSupported(content)) return RadarAdapter
+            if (RadarAdapter.formatIsSupported(content)) {
+
+
+            }
+            
+            return RadarAdapter
         });
     }
     

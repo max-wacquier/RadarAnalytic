@@ -1,3 +1,4 @@
+import { RadarFactory } from "../entities/Factories/RadarFactory";
 import { RadarAdapterManager } from "../entities/RadarAdapterManager";
 import { AwesomeRadarAdapter } from "../entities/adapters/AwesomeRadarAdapter";
 

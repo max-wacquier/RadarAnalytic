@@ -1,9 +1,7 @@
-import { Incident } from '../entities/Incident'
+import { Incident } from "../entities/Incident";
+import { Radar } from "../entities/Radar";
 
 export interface IRadarAdapter {
-    name: string;
-    location: string;
-    speedThreshold: number;
-    incidents: Array<Incident>;
     formatIsSupported: (format: string) => boolean;
+    createRadar: (format: string) => Radar; 
 }

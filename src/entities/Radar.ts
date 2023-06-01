@@ -1,7 +1,8 @@
+import { IRadar } from "../interfaces/IRadar";
 import { IRadarAdapter } from "../interfaces/IRadarAdapter";
 import { Incident } from "./Incident";
 
-export class RadarAdapter implements IRadarAdapter{
+export class Radar implements IRadar{
 
     name: string;
     location: string;
@@ -14,8 +15,6 @@ export class RadarAdapter implements IRadarAdapter{
         this.speedThreshold = speedThreshold
         this.incidents = incidents
     }
+
     
-    formatIsSupported (format: string) {
-        return true
-    };
 }

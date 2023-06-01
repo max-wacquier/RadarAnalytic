@@ -1,20 +1,16 @@
-import { IRadarAdapter } from "../../interfaces/AdapterInterface";
+import { IRadarAdapter } from "../../interfaces/IRadarAdapter";
 import { Incident } from "../Incident";
+import { Radar } from "../Radar";
 
 export class Reporter2000Adapter implements IRadarAdapter {
-    name: string;
-    location: string;
-    speedThreshold: number;
-    incidents: Array<Incident>;
+    constructor() {
 
-    constructor(name: string, location: string, speedThreshold: number, incidents: Array<Incident>) {
-            this.name = name;
-            this.location = location;
-            this.speedThreshold = speedThreshold;
-            this.incidents = incidents;
     }
-
     formatIsSupported(format: string) : boolean {
-        return true
-    }
+        return format === "AwesomeRadar" ?  true : false
+      }
+  
+    createRadar (format: string) {
+    return new Radar("","",0, [new Incident("", new Date, "","","","")]); //BOUCHONNAGE MOCHE
+    } 
 }
