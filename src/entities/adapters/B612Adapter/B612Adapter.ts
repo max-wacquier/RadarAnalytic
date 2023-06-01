@@ -1,7 +1,7 @@
-import { IRadarAdapter } from "../../interfaces/IRadarAdapter";
-import { Incident } from "../Incident";
-import { Radar } from "../Radar";
-import B612Base from "../../data/B612Base.json"
+import { IRadarAdapter } from "../../../interfaces/IRadarAdapter";
+import { Incident } from "../../Incident";
+import { Radar } from "../../Radar";
+import B612Base from "./B612Example.json"
 
 export class B612Adapter implements IRadarAdapter {
 
