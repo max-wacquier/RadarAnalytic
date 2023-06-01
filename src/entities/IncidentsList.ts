@@ -1,19 +1,15 @@
+import { Incident } from "./Incident";
 import { Radar } from "./Radar";
 
 export class IncidentsList {
-    constructor(){
-
+    
+    private incidents: Incident[];
+    constructor(incidents: Incident[]) {
+        this.incidents = incidents;
     }
 
-    addAllIncidentsFromRadar(newRadar: Radar){
-
+    isEmpty() {
+        return this.incidents.length === 0;
     }
 
-    containsIncident(content: string){
-        return true
-    }
-
-    getAllIncidentsWhichHaveTheSameDate(){
-        
-    }
 }
