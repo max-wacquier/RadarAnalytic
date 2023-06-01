@@ -1,5 +1,6 @@
 import { RadarFactory } from "../entities/Factories/RadarFactory";
-import { RadarAdapterManager } from "../entities/RadarAdapterManager";
+import { IncidentsList } from "../entities/IncidentsList";
+import { Radar } from "../entities/Radar";
 import { AwesomeRadarAdapter } from "../entities/adapters/AwesomeRadarAdapter";
 import { B612Adapter } from "../entities/adapters/B612Adapter";
 
@@ -17,7 +18,8 @@ describe('IncidentsList', () => {
 
         const reportOfRadar = "data/AwesomeRadar.json"
 
-        const myRadar = myRadarFactory.createRadarWithFile(reportOfRadar); //JSON 
+         
+        var myRadar  = myRadarFactory.createRadarWithFile(reportOfRadar); //JSON 
 
         const myIncidentsList = new IncidentsList();
         myIncidentsList.addAllIncidentsFromRadar(myRadar);

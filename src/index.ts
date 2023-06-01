@@ -1,4 +1,4 @@
-import _ from "lodash";
+import lodash from "lodash";
 
 // console.log("Hello world!");
 
@@ -26,4 +26,5 @@ const modelJSON = {
     ]
   };
     
-console.log( _.isEqual(remoteJSON, modelJSON) );
+console.log( lodash.isEqual(remoteJSON, modelJSON) );
+console.log("Hello world")

@@ -1,4 +1,4 @@
-export class NoAdapterFound extends Error {
+export class NoAdapterFound extends Error{
     constructor() {
         super()
         Object.setPrototypeOf(this, NoAdapterFound.prototype);
