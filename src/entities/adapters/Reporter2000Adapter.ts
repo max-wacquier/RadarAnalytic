@@ -1,7 +1,7 @@
 import { IRadarAdapter } from "../../interfaces/AdapterInterface";
 import { Incident } from "../Incident";
 
-export class AwesomeRadarAdapter implements IRadarAdapter {
+export class Reporter2000Adapter implements IRadarAdapter {
     name: string;
     location: string;
     speedThreshold: number;
@@ -15,6 +15,6 @@ export class AwesomeRadarAdapter implements IRadarAdapter {
     }
 
     formatIsSupported(format: string) : boolean {
-      return format === "AwesomeRadar" ?  true : false
-  }
+        return true
+    }
 }

@@ -19,6 +19,10 @@
   "homepage": "https://github.com/max-wacquier/RadarAnalytic#readme",
   "devDependencies": {
     "@types/jest": "^29.5.1",
+    "@types/lodash": "^4.14.195",
     "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
   }
 }
