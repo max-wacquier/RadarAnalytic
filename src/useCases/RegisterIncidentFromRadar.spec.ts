@@ -1,10 +1,12 @@
+import { RadarAdapterManager } from "../entities/RadarAdapterManager";
+import { AwesomeRadarAdapter } from "../entities/adapters/AwesomeRadarAdapter";
 
 describe('IncidentsList', () => {
 
     it('should register all incidents in IncidentsList from a radar', () => {
 
-        const ListOfAdapter = new AdapterManager ([
-            new AwesomeRadarAdaptateur(),
+        const ListOfAdapter = new RadarAdapterManager ([
+            new AwesomeRadarAdapter(),
             new R2D2Adaptateur(),
             new Reporteur2000Adaptateur()
         ])

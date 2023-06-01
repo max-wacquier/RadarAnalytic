@@ -1,5 +1,9 @@
 Les commandes à utiliser
 
+Install
+npm install typescript --save-dev
+npm i
+
 Build le typescript :
 npm run build
 

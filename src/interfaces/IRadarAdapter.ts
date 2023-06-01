@@ -5,4 +5,5 @@ export interface IRadarAdapter {
     location: string;
     speedThreshold: number;
     incidents: Array<Incident>;
+    formatIsSupported: (format: string) => boolean;
 }

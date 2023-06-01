@@ -1,4 +1,4 @@
-import { IRadarAdapter } from "../../interfaces/AdapterInterface";
+import { IRadarAdapter } from "../../interfaces/IRadarAdapter";
 import { Incident } from "../Incident";
 
 export class AwesomeRadarAdapter implements IRadarAdapter {
