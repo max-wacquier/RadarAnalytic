@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
       "target": "ES2016",
+      "types": ["node", "jest"],
       "module": "ES6",
       "esModuleInterop": true,
       "strict": true,

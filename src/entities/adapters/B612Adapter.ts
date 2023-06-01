@@ -16,7 +16,7 @@ export class B612Adapter implements IRadarAdapter {
       return true;
     }
   
-    createRadar (format: string) {
+    createRadar (format: string): Radar {
     return new Radar("","",0, [new Incident("", new Date, "","","","")]); //BOUCHONNAGE MOCHE
     } 
 }

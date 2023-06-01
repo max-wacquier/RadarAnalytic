@@ -1,6 +1,7 @@
 import { NoAdapterFound } from '../../errors/NoAdapterFound';
 import { IRadarAdapter } from '../../interfaces/IRadarAdapter';
 import * as fs from 'fs';
+import { Radar } from '../Radar';
 
 export class RadarFactory {
 
@@ -12,18 +13,22 @@ export class RadarFactory {
     });
     }
 
-    createRadarWithString(content : string){
-        this.ListOfRadarAdapter.forEach(RadarAdapter => {
-            if (RadarAdapter.formatIsSupported(content)) {
-                return RadarAdapter.createRadar(content)
-            } else {
-                throw new NoAdapterFound()
-            }
+    createRadarWithString(content : string): Radar  {
+        try{
+            this.ListOfRadarAdapter.forEach(RadarAdapter => {
+                if (RadarAdapter.formatIsSupported(content)) {
+                    return RadarAdapter.createRadar(content)
+                } 
+            });
+            throw new NoAdapterFound();
+        } catch (e){
+            throw new Error()
             
-        });
+        }
+                
     }
 
-    createRadarWithFile(filePath: string) {
+    createRadarWithFile(filePath: string): Radar {
        var contentOfFile = fs.readFileSync('data/AwesomeRadar.json','utf8')
        return this.createRadarWithString(contentOfFile);
     }
