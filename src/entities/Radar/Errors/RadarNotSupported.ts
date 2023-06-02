@@ -1,7 +1,7 @@
-export class NoAdapterFound extends Error{
+export class RadarNotSupported extends Error{
     constructor() {
         super()
-        Object.setPrototypeOf(this, NoAdapterFound.prototype);
+        Object.setPrototypeOf(this, RadarNotSupported.prototype);
     }
 
   getErrorMessage() {

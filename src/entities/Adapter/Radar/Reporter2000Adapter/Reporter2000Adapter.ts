@@ -1,6 +1,6 @@
-import { IRadarAdapter } from "../../../interfaces/IRadarAdapter";
-import { Incident } from "../../Incident";
-import { Radar } from "../../Radar";
+import { IRadarAdapter } from "../IRadarAdapter";
+import { Incident } from "../../../Incident/Incident";
+import { Radar } from "../../../Radar/Radar";
 
 export class Reporter2000Adapter implements IRadarAdapter {
     constructor() {

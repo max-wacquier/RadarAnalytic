@@ -1,6 +1,6 @@
-import { IRadarAdapter } from "../../../interfaces/IRadarAdapter";
-import { Incident } from "../../Incident";
-import { Radar } from "../../Radar";
+import { IRadarAdapter } from "../IRadarAdapter";
+import { Incident } from "../../../Incident/Incident";
+import { Radar } from "../../../Radar/Radar";
 import AwesomeRadarBase from "./AwesomeRadarExample.json"
 
 export class AwesomeRadarAdapter implements IRadarAdapter {
@@ -10,9 +10,11 @@ export class AwesomeRadarAdapter implements IRadarAdapter {
 
     formatIsSupported(format: string) : boolean {
       const object: {} = JSON.stringify(format)
-      for (var i in object)
+      for (var i in object){
         if (!AwesomeRadarBase.hasOwnProperty(i))
             return false;
+      }
+        
     return true;
     }
 

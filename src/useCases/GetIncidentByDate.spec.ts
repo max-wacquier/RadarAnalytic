@@ -1,4 +1,4 @@
-import { IncidentsList } from "../entities/IncidentsList";
+import { IncidentsList } from "../entities/Incident/IncidentsList";
 
 // describe('Testing the recuperation of incidents by date ', () => {
 //     const myIncidentsList = new IncidentsList()
