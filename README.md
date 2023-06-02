@@ -4,11 +4,11 @@ Install
 npm install typescript --save-dev
 npm i
 
-Build le typescript :
-npm run build
 
 Lancer le code généré : 
-node dist/index.js
+npm start
+Lancer les tests 
+npm test
 
 Les ressources
 
