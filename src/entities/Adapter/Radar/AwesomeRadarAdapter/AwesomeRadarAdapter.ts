@@ -10,9 +10,11 @@ export class AwesomeRadarAdapter implements IRadarAdapter {
 
     formatIsSupported(format: string) : boolean {
       const object: {} = JSON.stringify(format)
-      for (var i in object)
+      for (var i in object){
         if (!AwesomeRadarBase.hasOwnProperty(i))
             return false;
+      }
+        
     return true;
     }
 

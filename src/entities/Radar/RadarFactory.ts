@@ -13,26 +13,17 @@ export class RadarFactory {
     }
 
     createRadarFromString(content : string): Radar  {
-        var radar= this.ListOfRadarAdapter.find(RadarAdapter => {
+        var radar: Radar = new Radar("","",0, [new Incident("", new Date, "","","","")]);
+        this.ListOfRadarAdapter.find(RadarAdapter => {
             if (RadarAdapter.formatIsSupported(content)) {
-                return RadarAdapter.createRadar(content)
+                radar = RadarAdapter.createRadar(content)
             } 
         });
-        
-        console.log("radar : ", radar)
-        return new Radar("","",0, [new Incident("", new Date, "","","","")]); //BOUCHONNAGE MOCHE
-       
+        return radar
     }  
 
     createRadarFromObject(content : Object): Radar  {
         return this.createRadarFromString(content.toString());
-       
     }  
-
-    createRadarFromFile(filePath: string): Radar {
-       var contentOfFile = fs.readFileSync(filePath,'utf8')
-       console.log("Report :" + contentOfFile)
-       return this.createRadarFromString(contentOfFile);
-    }
 
 }

@@ -7,8 +7,8 @@ export class IncidentsList {
     addAllIncidentsFromRadar(newRadar: Radar){
     }
 
-    containsIncident(content: string){
-        return true
+    containsIncident(content: Object){
+        return false
     }
 
     getAllIncidentsWhichHaveTheSameDate(){
