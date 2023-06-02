@@ -47,12 +47,14 @@ describe('IncidentsList', () => {
             new Reporter2000Adapter()
         ]);
          
-        var myRadar  = myRadarFactory.createRadarFromObject(JSON.stringify(AwesomeRadarAdapterExample)); //JSON 
+        var myRadarAwesomeExample  = myRadarFactory.createRadarFromObject(JSON.stringify(AwesomeRadarAdapterExample)); //JSON 
+        var myRadarB612Example  = myRadarFactory.createRadarFromObject(JSON.stringify(B612Example)); //JSON 
 
         const myIncidentsList = new IncidentsList();
-        myIncidentsList.addAllIncidentsFromRadar(myRadar);
+        myIncidentsList.addAllIncidentsFromRadar(myRadarAwesomeExample);
+        myIncidentsList.addAllIncidentsFromRadar(myRadarB612Example);
         
-        expect(myIncidentsList.containsIncident(AwesomeRadarAdapterExample)).toBe(true);
+        expect(myIncidentsList.incidentList.length).toBe(6);
 
     });
 
