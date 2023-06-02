@@ -8,7 +8,7 @@ import AwesomeRadarAdapterExample from "../entities/Adapter/Radar/AwesomeRadarAd
 describe('IncidentsList', () => {
 
 
-    it('the radar factory should create a radar', () => {
+    it('the radar factory should create a radar from awesomeRadar example', () => {
         const myRadarFactory = new RadarFactory([
             new AwesomeRadarAdapter(),
             new B612Adapter(),
