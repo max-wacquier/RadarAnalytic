@@ -29,6 +29,7 @@
     "typescript": "^5.0.4"
   },
   "dependencies": {
-    "diff-js-xml": "^1.0.8"
+    "diff-js-xml": "^1.0.8",
+    "xml2json": "^0.12.0"
   }
 }

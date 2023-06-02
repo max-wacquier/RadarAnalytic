@@ -7,8 +7,6 @@ import AwesomeRadarAdapterExample from "../entities/Adapter/Radar/AwesomeRadarAd
 import B612Example from "../entities/Adapter/Radar/B612Adapter/B612Example.json";
 
 describe('Testing the recuperation of incidents by date ', () => {
-    const myIncidentsList = new IncidentsList()
-    const date = '2023:06:01'
 
     it('Getting incidents by date', () => {
 

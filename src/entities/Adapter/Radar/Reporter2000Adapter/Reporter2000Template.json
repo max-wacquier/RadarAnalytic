@@ -1,0 +1,28 @@
+{
+    "localisation": {
+        "loc": "Lyon 7e",
+        "date": {
+            "day": "2023-01-01",
+            "driver": [
+                {
+                    "license": "BH-686-AM",
+                    "type": "motocycle",
+                    "brand": "Suzuki",
+                    "speed": "120"
+                },
+                {
+                    "license": "BM-767-EM",
+                    "type": "motocycle",
+                    "brand": "Suzuki",
+                    "speed": "150"
+                },
+                {
+                    "license": "BM-767-EM",
+                    "type": "motocycle",
+                    "brand": "Suzuki",
+                    "speed": "260"
+                }
+            ]
+        }
+    }
+}
