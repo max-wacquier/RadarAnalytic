@@ -40,7 +40,7 @@ describe('IncidentsList', () => {
 
     })
 
-    it('should register all incidents in IncidentsList from a radar', () => {
+    it('should register all incidents in IncidentsList from radars', () => {
         const myRadarFactory = new RadarFactory([
             new AwesomeRadarAdapter(),
             new B612Adapter(),

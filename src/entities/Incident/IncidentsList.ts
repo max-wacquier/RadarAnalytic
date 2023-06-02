@@ -17,7 +17,16 @@ export class IncidentsList {
         return false
     }
 
-    getAllIncidentsWhichHaveTheSameDate(){
-        
+    getAllIncidentsWhichHaveTheSameDate(date: Date) : Array<Incident> {
+        var allIncidents = new Array<Incident>()
+
+        this.incidentList.forEach(element => {
+            if (date.getDay() === element.date.getDay() &&
+            date.getFullYear() === element.date.getFullYear() &&
+            date.getMonth() === element.date.getMonth()) {
+                allIncidents.push(element)
+            }
+        });
+        return allIncidents
     }
 }
