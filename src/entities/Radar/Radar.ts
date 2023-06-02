@@ -3,12 +3,12 @@ import { Incident } from "../Incident/Incident";
 
 export class Radar {
 
-    name: string;
+    name?: string|undefined;
     location: string;
-    speedThreshold: number;
+    speedThreshold?: number|undefined;
     incidents: Array<Incident>;
 
-    constructor(name: string, location: string, speedThreshold: number, incidents: Array<Incident>){
+    constructor(name: string|undefined, location: string, speedThreshold: number|undefined, incidents: Array<Incident>){
         this.name = name
         this.location = location
         this.speedThreshold = speedThreshold

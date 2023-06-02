@@ -31,6 +31,7 @@ export class AwesomeRadarAdapter implements IRadarAdapter {
     createRadar (format: string): Radar {
       var object : awesomeRadar = JSON.parse(format)
       var listOfIncident = new Array<Incident>;
+      // Parse data from string to radar
       object.incidents.forEach(incidentsAwesomeRadar => {
         var OneIncident = new Array<string>
         incidentsAwesomeRadar.forEach(element => {
@@ -39,10 +40,6 @@ export class AwesomeRadarAdapter implements IRadarAdapter {
         listOfIncident.push(new Incident(OneIncident[0],new Date(OneIncident[1])))
       })
 
-      return new Radar(
-        "",
-        object.metadata.localisation
-        ,object.metadata.speedThreshold
-        ,listOfIncident); 
+      return new Radar(undefined, object.metadata.localisation,object.metadata.speedThreshold,listOfIncident); 
     } 
 }
