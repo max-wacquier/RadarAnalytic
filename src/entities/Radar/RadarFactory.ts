@@ -16,6 +16,7 @@ export class RadarFactory {
         var radar: Radar = new Radar("","",0, [new Incident("", new Date, "","","","")]);
         this.ListOfRadarAdapter.find(RadarAdapter => {
             if (RadarAdapter.formatIsSupported(content)) {
+                console.log("le format est supporté !")
                 radar = RadarAdapter.createRadar(content)
             } 
         });

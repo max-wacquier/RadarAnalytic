@@ -15,10 +15,11 @@ describe('IncidentsList', () => {
             new Reporter2000Adapter()
         ]);
         
-        var myRadar  = myRadarFactory.createRadarFromObject(AwesomeRadarAdapterExample); //JSON 
+        var myRadar  = myRadarFactory.createRadarFromObject(JSON.stringify(AwesomeRadarAdapterExample)); //JSON 
         
         expect(myRadar.location).toBe("Lyon 7e")
-        expect(myRadar.speedThreshold).toBe("90")
+        expect(myRadar.speedThreshold).toBe(90)
+        expect(myRadar.incidents.length).toBe(3)
 
     })
 

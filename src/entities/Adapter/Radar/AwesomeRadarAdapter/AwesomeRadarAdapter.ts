@@ -1,24 +1,48 @@
 import { IRadarAdapter } from "../IRadarAdapter";
 import { Incident } from "../../../Incident/Incident";
 import { Radar } from "../../../Radar/Radar";
-import AwesomeRadarBase from "./AwesomeRadarExample.json"
+import AwesomeRadarBase from "./AwesomeRadarTemplate.json"
+
+type awesomeRadar = {
+  metadata:{
+    localisation: string,
+    speedThreshold: number
+  } ,
+  incidents: Array<Array<string>>
+}
 
 export class AwesomeRadarAdapter implements IRadarAdapter {
     
     constructor() {
     }
 
+  
     formatIsSupported(format: string) : boolean {
-      const object: {} = JSON.stringify(format)
+      const object = JSON.parse(format)
       for (var i in object){
         if (!AwesomeRadarBase.hasOwnProperty(i))
             return false;
       }
-        
     return true;
     }
 
+
+
     createRadar (format: string): Radar {
-      return new Radar("","",0, [new Incident("", new Date, "","","","")]); //BOUCHONNAGE MOCHE
+      var object : awesomeRadar = JSON.parse(format)
+      var listOfIncident = new Array<Incident>;
+      object.incidents.forEach(incidentsAwesomeRadar => {
+        var OneIncident = new Array<string>
+        incidentsAwesomeRadar.forEach(element => {
+          OneIncident.push(element);
+        })
+        listOfIncident.push(new Incident(OneIncident[0],new Date(OneIncident[1])))
+      })
+
+      return new Radar(
+        "",
+        object.metadata.localisation
+        ,object.metadata.speedThreshold
+        ,listOfIncident); 
     } 
 }
