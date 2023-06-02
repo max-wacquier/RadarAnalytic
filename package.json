@@ -1,6 +1,6 @@
 {
   "name": "radaranalytic",
-  "test":"jest",
+  "test": "jest",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -29,5 +29,6 @@
     "typescript": "^5.0.4"
   },
   "dependencies": {
+    "diff-js-xml": "^1.0.8"
   }
 }
