@@ -29,6 +29,10 @@
     "typescript": "^5.0.4"
   },
   "dependencies": {
-    "diff-js-xml": "^1.0.8"
+    "@pdfme/generator": "^1.2.3",
+    "@pdfme/ui": "^1.2.3",
+    "diff-js-xml": "^1.0.8",
+    "image-to-base64": "^2.2.0",
+    "xmlhttprequest-ts": "^1.0.1"
   }
 }
