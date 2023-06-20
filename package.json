@@ -31,7 +31,11 @@
   },
   "dependencies": {
     "diff-js-xml": "^1.0.8",
-    "fast-xml-parser": "^4.2.4",
-    "xml2json": "^0.12.0"
+    "xml2json": "^0.12.0",
+    "@pdfme/generator": "^1.2.3",
+    "@pdfme/ui": "^1.2.3",
+    "image-to-base64": "^2.2.0",
+    "xmlhttprequest-ts": "^1.0.1",
+    "fast-xml-parser": "^4.2.4"
   }
 }
