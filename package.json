@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "jest",
     "build": "tsc --build",
@@ -32,6 +31,7 @@
   },
   "dependencies": {
     "diff-js-xml": "^1.0.8",
+    "fast-xml-parser": "^4.2.4",
     "xml2json": "^0.12.0"
   }
 }

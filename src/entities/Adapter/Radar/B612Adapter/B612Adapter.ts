@@ -20,14 +20,19 @@ export class B612Adapter implements IRadarAdapter {
     }
 
     formatIsSupported(format: string) : boolean {
-      const object = JSON.parse(format)
-      for (var i in object)
-        if (!B612Base.hasOwnProperty(i))
+      try {
+        const object = JSON.parse(format)
+        for (var i in object)
+          if (!B612Base.hasOwnProperty(i))
             return false;
-      return true;
+        return true;
+      } catch (error) {
+        return false;
+      }
     }
   
     createRadar (format: string): Radar {
+      console.log('B612Radar');
       var object : B612Radar = JSON.parse(format)
       var listOfIncident = new Array<Incident>;
       object.reports.forEach(Oneincident => {

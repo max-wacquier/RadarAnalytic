@@ -17,18 +17,21 @@ export class AwesomeRadarAdapter implements IRadarAdapter {
     }
 
   
-    formatIsSupported(format: string) : boolean {
-      const object = JSON.parse(format)
-      for (var i in object){
-        if (!AwesomeRadarBase.hasOwnProperty(i))
+    formatIsSupported(format: string): boolean {
+      try {
+        const object = JSON.parse(format)
+        for (var i in object) {
+          if (!AwesomeRadarBase.hasOwnProperty(i))
             return false;
+        }
+        return true;
+      } catch (error) {
+        return false;
       }
-    return true;
     }
 
-
-
     createRadar (format: string): Radar {
+      console.log('awesomeRadar');
       var object : awesomeRadar = JSON.parse(format)
       var listOfIncident = new Array<Incident>;
       // Parse data from string to radar
@@ -40,6 +43,6 @@ export class AwesomeRadarAdapter implements IRadarAdapter {
         listOfIncident.push(new Incident(OneIncident[0],new Date(OneIncident[1])))
       })
 
-      return new Radar(undefined, object.metadata.localisation,object.metadata.speedThreshold,listOfIncident); 
+      return new Radar(undefined, object.metadata.localisation, object.metadata.speedThreshold, listOfIncident); 
     } 
 }
