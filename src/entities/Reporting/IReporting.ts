@@ -1,3 +1,5 @@
-export interface IReporting {
-    formatName : String,
+import { Template } from "@pdfme/generator";
+
+export interface IReportingPdf {
+    template : Template
 }

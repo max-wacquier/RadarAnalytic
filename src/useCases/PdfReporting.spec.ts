@@ -6,6 +6,7 @@ import { RadarFactory } from "../entities/Radar/RadarFactory";
 import AwesomeRadarAdapterExample from "../entities/Adapter/Radar/AwesomeRadarAdapter/AwesomeRadarExample.json";
 import B612Example from "../entities/Adapter/Radar/B612Adapter/B612Example.json";
 import { PdfReportingFactory } from "../entities/Reporting/PdfReporting/PdfReporting";
+import { etat } from "../entities/Reporting/Adapter/etat";
 
 describe('Test the generation of pdf reporting ', () => {
 
@@ -24,7 +25,8 @@ describe('Test the generation of pdf reporting ', () => {
         myIncidentsList.addAllIncidentsFromRadar(myRadarAwesomeExample);
         myIncidentsList.addAllIncidentsFromRadar(myRadarB612Example);
 
-        var generateReport = new PdfReportingFactory().generatePdfReporting(myIncidentsList.getTemplate(), myIncidentsList.generateInputsForReporting());
+
+        var generateReport = new PdfReportingFactory().generatePdfReporting(new etat().template, myIncidentsList.generateInputsForReporting());
 
         
         expect(true).toBe(true);
