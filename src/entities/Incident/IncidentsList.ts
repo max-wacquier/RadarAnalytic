@@ -1,11 +1,25 @@
 import { Radar } from "../Radar/Radar";
 import { Incident } from "./Incident";
+import { Template, BLANK_PDF } from '@pdfme/generator';
+import * as fs from 'fs';
+import { XMLHttpRequest } from 'xmlhttprequest-ts';
 
 export class IncidentsList {
-    
     incidentList : Array<Incident> = new Array();
-
+    
     constructor(){}
+
+    generateInputsForReporting() {
+        
+        var content = fs.readFileSync("./Caricature-Policier-Collection.jpeg", "base64")
+        var dataList = ""
+        this.incidentList.forEach(incident => {
+            dataList = dataList +  "\nPlaque d'immatriculation : "+incident.licencePlate 
+        });
+        return [{ image: "data:image/jpeg;base64,"+content, Incidents: 'Incidents', field3: dataList }]
+    }
+    
+    
 
     addAllIncidentsFromRadar(newRadar: Radar){
         newRadar.incidents.forEach(incident => {

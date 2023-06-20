@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "jest",
     "build": "tsc --build",
@@ -32,6 +31,10 @@
   },
   "dependencies": {
     "diff-js-xml": "^1.0.8",
-    "xml2json": "^0.12.0"
+    "xml2json": "^0.12.0",
+    "@pdfme/generator": "^1.2.3",
+    "@pdfme/ui": "^1.2.3",
+    "image-to-base64": "^2.2.0",
+    "xmlhttprequest-ts": "^1.0.1"
   }
 }
