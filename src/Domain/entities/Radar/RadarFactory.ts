@@ -1,6 +1,4 @@
-import { RadarNotSupported } from './Errors/RadarNotSupported';
 import { IRadarAdapter } from '../Adapter/Radar/IRadarAdapter';
-import * as fs from 'fs';
 import { Radar } from './Radar';
 import { Incident } from '../Incident/Incident';
 

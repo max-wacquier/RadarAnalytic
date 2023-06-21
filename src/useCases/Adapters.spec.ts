@@ -1,7 +1,7 @@
-import { AwesomeRadarAdapter } from "../entities/Adapter/Radar/AwesomeRadarAdapter/AwesomeRadarAdapter";
-import AwesomeRadarexemple from "../entities/Adapter/Radar/AwesomeRadarAdapter/AwesomeRadarExample.json";
-import { B612Adapter } from "../entities/Adapter/Radar/B612Adapter/B612Adapter";
-import  B612Example from "../entities/Adapter/Radar/B612Adapter/B612Example.json";
+import { AwesomeRadarAdapter } from "../Domain/entities/Adapter/Radar/AwesomeRadarAdapter/AwesomeRadarAdapter";
+import AwesomeRadarexemple from "../Domain/entities/Adapter/Radar/AwesomeRadarAdapter/AwesomeRadarExample.json";
+import { B612Adapter } from "../Domain/entities/Adapter/Radar/B612Adapter/B612Adapter";
+import  B612Example from "../Domain/entities/Adapter/Radar/B612Adapter/B612Example.json";
 
 describe('Testing the adapters ', () => {
 

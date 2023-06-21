@@ -1,10 +1,10 @@
-import { RadarFactory } from "../entities/Radar/RadarFactory";
-import { IncidentsList } from "../entities/Incident/IncidentsList";
-import { AwesomeRadarAdapter } from "../entities/Adapter/Radar/AwesomeRadarAdapter/AwesomeRadarAdapter";
-import { B612Adapter } from "../entities/Adapter/Radar/B612Adapter/B612Adapter";
-import { Reporter2000Adapter } from "../entities/Adapter/Radar/Reporter2000Adapter/Reporter2000Adapter";
-import AwesomeRadarAdapterExample from "../entities/Adapter/Radar/AwesomeRadarAdapter/AwesomeRadarExample.json";
-import B612Example from "../entities/Adapter/Radar/B612Adapter/B612Example.json";
+import { RadarFactory } from "../Domain/entities/Radar/RadarFactory";
+import { IncidentsList } from "../Domain/entities/Incident/IncidentsList";
+import { AwesomeRadarAdapter } from "../Domain/entities/Adapter/Radar/AwesomeRadarAdapter/AwesomeRadarAdapter";
+import { B612Adapter } from "../Domain/entities/Adapter/Radar/B612Adapter/B612Adapter";
+import { Reporter2000Adapter } from "../Domain/entities/Adapter/Radar/Reporter2000Adapter/Reporter2000Adapter";
+import AwesomeRadarAdapterExample from "../Domain/entities/Adapter/Radar/AwesomeRadarAdapter/AwesomeRadarExample.json";
+import B612Example from "../Domain/entities/Adapter/Radar/B612Adapter/B612Example.json";
 
 describe('IncidentsList', () => {
 
@@ -12,8 +12,7 @@ describe('IncidentsList', () => {
     it('the radar factory should create a radar from awesomeRadar example', () => {
         const myRadarFactory = new RadarFactory([
             new AwesomeRadarAdapter(),
-            new B612Adapter(),
-            new Reporter2000Adapter()
+            new B612Adapter()
         ]);
         
         var myRadar  = myRadarFactory.createRadarFromObject(JSON.stringify(AwesomeRadarAdapterExample)); //JSON 
@@ -27,8 +26,7 @@ describe('IncidentsList', () => {
     it('the radar factory should create a radar from B612 example', () => {
         const myRadarFactory = new RadarFactory([
             new AwesomeRadarAdapter(),
-            new B612Adapter(),
-            new Reporter2000Adapter()
+            new B612Adapter()
         ]);
         
         var myRadar  = myRadarFactory.createRadarFromObject(JSON.stringify(B612Example)); //JSON 
@@ -43,8 +41,7 @@ describe('IncidentsList', () => {
     it('should register all incidents in IncidentsList from radars', () => {
         const myRadarFactory = new RadarFactory([
             new AwesomeRadarAdapter(),
-            new B612Adapter(),
-            new Reporter2000Adapter()
+            new B612Adapter()
         ]);
          
         var myRadarAwesomeExample  = myRadarFactory.createRadarFromObject(JSON.stringify(AwesomeRadarAdapterExample)); //JSON 

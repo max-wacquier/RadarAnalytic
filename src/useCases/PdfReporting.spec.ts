@@ -1,12 +1,12 @@
-import { AwesomeRadarAdapter } from "../entities/Adapter/Radar/AwesomeRadarAdapter/AwesomeRadarAdapter";
-import { B612Adapter } from "../entities/Adapter/Radar/B612Adapter/B612Adapter";
-import { Reporter2000Adapter } from "../entities/Adapter/Radar/Reporter2000Adapter/Reporter2000Adapter";
-import { IncidentsList } from "../entities/Incident/IncidentsList";
-import { RadarFactory } from "../entities/Radar/RadarFactory";
-import AwesomeRadarAdapterExample from "../entities/Adapter/Radar/AwesomeRadarAdapter/AwesomeRadarExample.json";
-import B612Example from "../entities/Adapter/Radar/B612Adapter/B612Example.json";
-import { PdfReportingFactory } from "../entities/Reporting/PdfReporting/PdfReporting";
-import { etat } from "../entities/Reporting/Adapter/etat";
+import { AwesomeRadarAdapter } from "../Domain/entities/Adapter/Radar/AwesomeRadarAdapter/AwesomeRadarAdapter";
+import { B612Adapter } from "../Domain/entities/Adapter/Radar/B612Adapter/B612Adapter";
+import { Reporter2000Adapter } from "../Domain/entities/Adapter/Radar/Reporter2000Adapter/Reporter2000Adapter";
+import { IncidentsList } from "../Domain/entities/Incident/IncidentsList";
+import { RadarFactory } from "../Domain/entities/Radar/RadarFactory";
+import AwesomeRadarAdapterExample from "../Domain/entities/Adapter/Radar/AwesomeRadarAdapter/AwesomeRadarExample.json";
+import B612Example from "../Domain/entities/Adapter/Radar/B612Adapter/B612Example.json";
+import { FrenchEtatIncidentReporting } from "../Infra/Reporting/Adapter/FrenchEtat/FrenchEtatIncidentReporting";
+import { PdfMeFactory } from "../Infra/Pdf/PdfReporting";
 
 describe('Test the generation of pdf reporting ', () => {
 
@@ -14,8 +14,8 @@ describe('Test the generation of pdf reporting ', () => {
     it('Checking if we can generate pdf reporting contening a lisf of incident', () => {
         const myRadarFactory = new RadarFactory([
             new AwesomeRadarAdapter(),
-            new B612Adapter(),
-            new Reporter2000Adapter()
+            new B612Adapter()
+            
         ]);
         
         var myRadarAwesomeExample  = myRadarFactory.createRadarFromObject(JSON.stringify(AwesomeRadarAdapterExample)); //JSON 
@@ -25,10 +25,10 @@ describe('Test the generation of pdf reporting ', () => {
         myIncidentsList.addAllIncidentsFromRadar(myRadarAwesomeExample);
         myIncidentsList.addAllIncidentsFromRadar(myRadarB612Example);
 
-
-        var generateReport = new PdfReportingFactory().generatePdfReporting(new etat().template, myIncidentsList.generateInputsForReporting());
-
-        
+        var newDocument = new FrenchEtatIncidentReporting().getDocumentFormat();
+        var temp = new PdfMeFactory();
+        temp.generatePdfMeReporting(newDocument);
+        temp.getDocument();
         expect(true).toBe(true);
     });
 });

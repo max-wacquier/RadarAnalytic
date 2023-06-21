@@ -10,7 +10,6 @@ export class IncidentsList {
     constructor(){}
 
     generateInputsForReporting() {
-        
         var content = fs.readFileSync("./Caricature-Policier-Collection.jpeg", "base64")
         var dataList = ""
         this.incidentList.forEach(incident => {
@@ -18,8 +17,6 @@ export class IncidentsList {
         });
         return [{ image: "data:image/jpeg;base64,"+content, Incidents: 'Incidents', field3: dataList }]
     }
-    
-    
 
     addAllIncidentsFromRadar(newRadar: Radar){
         newRadar.incidents.forEach(incident => {
