@@ -3,6 +3,7 @@ import * as fs from 'fs';
 import { PdfDocument } from "../../Domain/entities/Reporting/Pdf/PdfDocument";
 import { PdfPage } from "../../Domain/entities/Reporting/Pdf/PdfPage";
 import { PdfText } from "../../Domain/entities/Reporting/Pdf/PdfText";
+import { PdfImage } from "../../Domain/entities/Reporting/Pdf/PdfImage";
 
 export class PdfMeFactory {
 
@@ -10,7 +11,6 @@ export class PdfMeFactory {
     basePdf: BLANK_PDF,
     schemas: [] = [{}]
   };
-  Schema: {[key: string]: {}} = {};
   Inputs: [{[k: string]: string}] = [{}];
 
   generatePdfMeReporting(document: PdfDocument) {
@@ -21,10 +21,27 @@ export class PdfMeFactory {
         var textElement = element as PdfText;
         this.createTextElementWithPdfMe(textElement);
       }
+      if (element instanceof PdfImage) {
+        var imageElement = element as PdfImage;
+        this.createImageElementWithPdfMe(imageElement);
+      }
     });
-    console.log("BasePdf", this.BasePdf); 
-    console.log("Inputs", this.Inputs);
   }
+
+  createImageElementWithPdfMe(imageElement: PdfImage) {
+    var value: string = imageElement.src;
+    var value = fs.readFileSync(value, "base64")
+    this.Inputs[0][value] = "data:image/jpeg;base64,"+value;
+    this.BasePdf.schemas[0][value] ={
+        type: "image",
+        width: imageElement.width,
+        height: imageElement.height,
+        position: {
+          x: imageElement.x,
+          y: imageElement.y
+        }
+      }
+    }
 
   createTextElementWithPdfMe(textElement: PdfText) {
     var value: string = textElement.text;
@@ -46,19 +63,9 @@ export class PdfMeFactory {
     }
   
     
-  getDocument(){
-    this.generatePdfReporting("test.pdf");
-  }
-
   generatePdfReporting( nameOfFile: string) {
-    console.log("inputs:", this.Inputs)
-    console.log("BasePdf:", this.BasePdf)
-    console.log("schemas1:", this.BasePdf.schemas.at(0))
-    
-   
     var inputs = this.Inputs;
     var template = this.BasePdf;
-
     generate( { template, inputs }).then((pdf) => {
         fs.writeFileSync(nameOfFile, pdf);
       });

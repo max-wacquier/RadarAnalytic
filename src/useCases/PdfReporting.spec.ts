@@ -6,10 +6,18 @@ import { RadarFactory } from "../Domain/entities/Radar/RadarFactory";
 import AwesomeRadarAdapterExample from "../Domain/entities/Adapter/Radar/AwesomeRadarAdapter/AwesomeRadarExample.json";
 import B612Example from "../Domain/entities/Adapter/Radar/B612Adapter/B612Example.json";
 import { FrenchEtatIncidentReporting } from "../Infra/Reporting/Adapter/FrenchEtat/FrenchEtatIncidentReporting";
-import { PdfMeFactory } from "../Infra/Pdf/PdfReporting";
-
+import { PdfMeFactory } from "../Infra/Pdf/PdfMeFactory";
+import * as fs from 'fs';
+function delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+}
 describe('Test the generation of pdf reporting ', () => {
-
+    beforeAll(() => {
+        if (fs.existsSync("generated/test.pdf")) {
+            console.log("Deleting old test.pdf")
+            fs.rmSync("generated/test.pdf", { recursive: true, force: true});
+        } 
+    });
 
     it('Checking if we can generate pdf reporting contening a lisf of incident', () => {
         const myRadarFactory = new RadarFactory([
@@ -27,8 +35,11 @@ describe('Test the generation of pdf reporting ', () => {
 
         var newDocument = new FrenchEtatIncidentReporting().getDocumentFormat();
         var temp = new PdfMeFactory();
-        temp.generatePdfMeReporting(newDocument);
-        temp.getDocument();
-        expect(true).toBe(true);
+        temp.generatePdfMeReporting(newDocument)
+        
+        
+        expect(temp.generatePdfReporting("generated/test.pdf")).toBe("generated/test.pdf");
+       
     });
-});
+  
+})

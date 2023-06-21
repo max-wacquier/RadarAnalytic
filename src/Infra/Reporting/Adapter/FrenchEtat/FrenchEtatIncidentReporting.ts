@@ -13,7 +13,7 @@ export class FrenchEtatIncidentReporting implements IReportingPdf {
       // BOUCHONNAGE DES DONNEES
       firstPage.addElement(new PdfText(77.06, 132.2, 10, 10, "center", 29, 0, 1, "Roboto", "Incidents"));
       firstPage.addElement(new PdfText(50, 50, 10, 10, "left", 29, 0, 1, "Roboto", "yo"));
-      firstPage.addElement(new PdfImage(50, 50, 50, 50, "./Caricature-Policier-Collection.jpeg"));
+      firstPage.addElement(new PdfImage(0, 0, 50, 50, "./Caricature-Policier-Collection.jpeg"));
       IncidentPdfReport.addPage(firstPage);
       return IncidentPdfReport;
     }
